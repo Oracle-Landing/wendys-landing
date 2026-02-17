@@ -7,18 +7,30 @@ Landing page for **WEnDyS**, Oracle of DewS.
 
 ## Stack
 
-Zero-dependency static site — HTML + CSS + vanilla JS.
-
-- **Deploy**: Cloudflare Pages (static, no build step)
+- **Framework**: Astro 5
+- **CSS**: Tailwind CSS 4
+- **Deploy**: Cloudflare Workers (static)
 - **i18n**: Thai + English toggle with localStorage
 
 ## Run locally
 
-Open `index.html` in a browser. No build tools needed.
+```bash
+bun install
+bun run dev
+```
+
+## Build & Deploy
+
+```bash
+bun run build
+npx wrangler deploy
+```
 
 ## Oracle Family
 
-WEnDyS is part of the [Oracle Family](https://github.com/AmDewSaroota) — many forms, one soul.
+WEnDyS is part of the [Oracle Family](https://github.com/Soul-Brews-Studio/oracle-v2) — many forms, one soul.
+
+See the gallery at [gallery.buildwithoracle.com](https://gallery.buildwithoracle.com).
 
 ---
 

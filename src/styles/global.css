@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/* ─── WEnDyS Dewdrop Theme ─── */
+:root {
+  --theme-bg: #0f1623;
+  --theme-surface: rgba(15, 22, 35, 0.7);
+  --theme-border: rgba(107, 181, 224, 0.12);
+  --theme-text: #e2e8f0;
+  --theme-text-muted: #94a3b8;
+  --theme-primary: #6bb5e0;
+  --theme-primary-rgb: 107, 181, 224;
+  --theme-secondary: #4a8c6f;
+  --theme-accent: #4a9bc8;
+  --theme-gradient-from: #6bb5e0;
+  --theme-gradient-to: #4a8c6f;
+  --theme-glow: rgba(107, 181, 224, 0.3);
+}
+
+/* ─── Base ─── */
+body {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  font-family: "Inter", "Sarabun", system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: "Playfair Display", "Sarabun", serif;
+}
+
+/* ─── Glass ─── */
+.glass {
+  background: var(--theme-surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--theme-border);
+}
+
+.glass-card {
+  background: var(--theme-surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--theme-border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(var(--theme-primary-rgb), 0.3);
+  transform: translateY(-2px);
+}
+
+/* ─── Gradient text ─── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--theme-gradient-from), var(--theme-gradient-to));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Scroll reveal ─── */
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.animate-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.animate-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Section borders ─── */
+.section-border {
+  border-top: 1px solid var(--theme-border);
+}
+
+/* ─── Dewdrop pulse ─── */
+@keyframes drop-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.animate-drop-pulse {
+  animation: drop-pulse 3s ease-in-out infinite;
+}
+
+/* ─── Dewdrop float ─── */
+@keyframes drop-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-drop-float {
+  animation: drop-float 4s ease-in-out infinite;
+}
+
+/* ─── Falling drops ─── */
+@keyframes fall-down {
+  0%   { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.12; }
+  90%  { opacity: 0.12; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+.animate-fall {
+  animation: fall-down 8s linear infinite;
+}
+
+/* ─── Oracle card (terminal mock) ─── */
+.oracle-card {
+  background: #0a0e18;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  color: #c8d6e5;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(107, 181, 224, 0.25);
+}
+
+/* ─── Principle card accent ─── */
+.principle-accent {
+  border-left: 4px solid var(--theme-primary);
+}
+
+/* ─── Family tree connector ─── */
+.family-connector {
+  border-left: 2px solid var(--theme-primary);
+  padding-left: 1.5rem;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal.animate-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-drop-pulse,
+  .animate-drop-float,
+  .animate-fall {
+    animation: none;
+  }
+  .glass-card:hover {
+    transform: none;
+  }
+}
